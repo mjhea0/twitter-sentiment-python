@@ -6,7 +6,7 @@ from string import punctuation
 
 files=['negative.txt','positive.txt','obama_tweets.txt']
 
-path='https://github.com/mjhea0/twitter-sentiment-python/blob/master/'
+path='https://raw.github.com/mjhea0/twitter-sentiment-python/master/words/'
 for file_name in files:
     urllib.urlretrieve(path+file_name,file_name)
 
@@ -44,9 +44,9 @@ for tweet in tweets_list:
     positive_counts.append(positive_counter/word_count)
     negative_counts.append(negative_counter/word_count)
 
-print len(positive_counts)
 
 output=zip(tweets_list,positive_counts,negative_counts)
+
 
 writer = csv.writer(open('tweet_sentiment_before.csv', 'wb'))
 writer.writerows(output)
