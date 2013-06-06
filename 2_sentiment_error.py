@@ -23,9 +23,11 @@ negative_words=neg_sent.split('\n')
 negative_counts=[]
 
 
-for tweet in tweets_list:
+for tweet in tweets_list[3:4]:
     positive_counter=0
     negative_counter=0
+    pos_words = []
+    neg_words = []
     
     tweet_processed=tweet.lower()
     
@@ -37,8 +39,10 @@ for tweet in tweets_list:
     word_count=len(words)
     for word in words:
         if word in positive_words:
+            pos_words.append(word)
             positive_counter=positive_counter+1
         elif word in negative_words:
+            neg_words.append(word)
             negative_counter=negative_counter+1
         
     positive_counts.append(positive_counter/word_count)
@@ -47,6 +51,6 @@ for tweet in tweets_list:
 
 output=zip(tweets_list,positive_counts,negative_counts)
 
-
-writer = csv.writer(open('tweet_sentiment_before.csv', 'wb'))
-writer.writerows(output)
+print output
+print pos_words
+print neg_words
