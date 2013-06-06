@@ -34,13 +34,13 @@ Problem
   
   Thus, if the next for loop is updated to the code below, this problem will be eliminated:
 
-    for word in words:
-        if word in positive_words and word != '':
-            pos_words.append(word)
-            positive_counter=positive_counter+1
-        elif word in negative_words and word != '':
-            neg_words.append(word)
-            negative_counter=negative_counter+1
+        for word in words:
+            if word in positive_words and word != '':
+                pos_words.append(word)
+                positive_counter=positive_counter+1
+            elif word in negative_words and word != '':
+                neg_words.append(word)
+                negative_counter=negative_counter+1
 
 Correction
 ---------
